@@ -1,0 +1,36 @@
+/**
+ * iconfont.less -- 系统字体图标
+**/
+
+// 可以参考 font-demo/iconfont-demo.html
+/*
+ * 第一步: 定义字体,并加载iconfont字体库,注意字体文件路径
+*/
+@font-face {font-family: "iconfont";
+  src: url('fonts/iconfont.woff?t=1487050732443') format('woff'), /* chrome, firefox */
+  url('fonts/iconfont.ttf?t=1487050732443') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('fonts/iconfont.svg?t=1487050732443#iconfont') format('svg'); /* iOS 4.1- */
+}
+/*
+ *  第二步 - 使用
+ *  方式一( class + 编码方式 ):
+ *  在标签添加class="iconfont"
+ *  并且在标签里添加字体编码,完整示例如: <i class="iconfont icon-diqu"></i>
+*/
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-diqu:before { content: "\e602"; }
+
+.icon-leixing:before { content: "\e603"; }
+
+.icon-xingshi:before { content: "\e607"; }
+
+.icon-wodeyinji:before { content: "\e60a"; }
+
+.icon-wodeshoucang:before { content: "\e60b"; }

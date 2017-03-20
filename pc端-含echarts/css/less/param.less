@@ -1,0 +1,129 @@
+/* 基础快速布局 */
+.ib_mid_wrap {
+    font-size: 0;
+    text-align: center;
+    //letter-spacing: e("[;-3px;]");
+}
+.ib_mid_wrap:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    width: 0;
+}
+.ib_mid {
+    font-size: medium;
+    *text-align: left; // 解决低版本的IE文字居右的问题
+    display: inline-block;
+    vertical-align: middle;
+    //letter-spacing: e("[;normal;]");
+}
+.txa_c {
+    text-align: center;
+}
+.txa_r {
+    text-align: right;
+}
+.txa_l {
+    text-align: left;
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.vat {
+    vertical-align: top;
+}
+.vam {
+    vertical-align: middle;
+}
+.vab {
+    vertical-align: bottom;
+}
+.nowrap {
+    white-space: nowrap;
+    word-break: keep-all;
+}
+.prewrap {
+    white-space: pre;
+}
+.hide{
+    display: none;
+}
+
+//单行溢出显示省略号
+.txa_elli {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    .nowrap;
+}
+
+//多行溢出显示省略号 -- 适合 -webkit- 内核浏览器,移动端
+/*
+    调用方法: 默认为两行显示省略号
+            .multiLine-overflow(3);
+ */
+.multiLine-overflow(@lineClamp:2){
+    display: -webkit-box;                 // 必须结合的属性,将对象作为弹性伸缩盒子模型显示
+    -webkit-line-clamp: @lineClamp;       // 设置显示多少行
+    -webkit-box-orient: vertical;         // 必须结合的属性,设置或检索伸缩盒对象的子元素的排列方式
+    overflow : hidden;
+    text-overflow: ellipsis;              // 可以用来多行文本的情况下，用省略号“…”隐藏超出范围的文本
+}
+
+a:active,
+a:focus {
+    outline: none;
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+	li {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+}
+
+a:hover {
+	text-decoration: none;
+}
+/* 响应式图片 */
+.img-responsive {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+//参数定义
+//主色
+@mainThemeColor: #75a4de;
+//文字色
+@fontColorWhite: #fff;
+//背景色
+@bgColorWhite: #fff;
+//end 参数定义
+@mediaretina: ~"(-webkit-min-device-pixel-ratio: 2),(min--moz-device-pixel-ratio: 2),(-o-min-device-pixel-ratio: 2/1),(min-device-pixel-ratio: 2),(min-resolution: 192dpi),(min-resolution: 2dppx)";
+//less and css location
+@lessPatch: "../";
+@cssPatch: ""; //nav bar logo
+
+.btnColor(@color; @background; @border) {
+    color: @color;
+    background-color: @background;
+    border-color: @border;
+}
+.getimgwhi(@imglocation) {
+    @img1: "@{lessPatch}@{imglocation}";
+    @img2: "@{cssPatch}@{imglocation}";
+    width: image-width(@img1);
+    height: image-height(@img1);
+    background-image: url("@img2");
+}
+.firstBorderNone(){
+    &:first-child{
+        border-top:none;
+    }
+}
